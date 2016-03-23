@@ -19,13 +19,6 @@ public class JSONGeneratorServiceImpl implements JSONGeneratorService {
 		mapper.enable(SerializationFeature.INDENT_OUTPUT);
 	}
 
-	/**
-	 * Generates a JSON string representation of the provided object.
-	 * 
-	 * @param object the object to generate json for
-	 * @return a String containing the JSON presentation of the object
-	 * @throws JsonProcessingException
-	 */
 	@Override
 	public String generateJSON(Object object) throws JsonProcessingException {
 		return mapper.writer().writeValueAsString(object);
