@@ -16,7 +16,7 @@ import com.mostafa.set.model.Result;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(SETApplication.class)
-@WebIntegrationTest({"server.port=9000"})
+@WebIntegrationTest({"server.port = 9000"})
 public class ProductHTMLParserServiceImplTest {
 	@Autowired
 	private ProductHTMLParserServiceImpl service;
@@ -26,5 +26,10 @@ public class ProductHTMLParserServiceImplTest {
 		Result result = service.getProductResult("http://localhost:9000/test/product_root_page.html");
 		assertEquals(7.1, result.getTotal(), 0);
 		assertEquals(3, result.getResults().size());
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void verifyGetProductResultInvalidUrl() throws IOException {
+		service.getProductResult("http://www.google.com");
 	}
 }

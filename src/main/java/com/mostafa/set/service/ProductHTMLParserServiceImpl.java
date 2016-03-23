@@ -30,8 +30,8 @@ public class ProductHTMLParserServiceImpl implements ProductHTMLParserService {
 
 		Elements products = document.select("div.product");
 		if(products.size() < 1) {
-			LOG.error("No product found on product page!");
-			return null;
+			LOG.error("No product found on given product page!");
+			throw new IllegalArgumentException("No product found on given product page!");
 		}
 		
 		final List<Product> productList = new ArrayList<>(products.size());
