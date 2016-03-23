@@ -1,4 +1,4 @@
-# sset
+# set
 Sainsbury’s Software Engineering Test
 
 # Running the application
